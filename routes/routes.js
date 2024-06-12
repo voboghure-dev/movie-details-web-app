@@ -1,8 +1,10 @@
 import express from 'express';
-import homeController from '../controllers/homeController.js';
+import { home, search } from '../controllers/homeController.js';
 
 const route = express.Router();
 
-route.get('/', homeController);
+route.get('/', home);
+
+route.post('/', search);
 
 export default route;

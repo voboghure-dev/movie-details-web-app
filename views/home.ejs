@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details Web App</title>
+    <link rel="stylesheet" href="<%= url %>/css/style.css">
+</head>
+
+<body>
+    <h1 class="w-full mb-12 mt-6 text-4xl text-center">Movie Details Web App</h1>
+
+    <form class="w-full mb-4 max-w-sm mx-auto" method="POST" action="">
+        <div class="mb-5">
+            <label for="movie-name" class="block mb-2 text-sm font-medium text-gray-900">Enter Movie Name</label>
+            <input type="text" id="movie-name" name="movie_name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Batman" required />
+        </div>
+        <button type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+    </form>
+
+    <% if(typeof data=='object' && data.Response == 'True') { %>
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="px-6 py-4">Movie Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Title
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Title %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Year
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Year %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Rated
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Rated %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Released
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Released %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Runtime
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Runtime %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Genre
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Genre %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Director
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Director %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Writer
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Writer %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Actors
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Actors %>
+                        </td>
+                    </tr>
+                    <tr class="bg-white border-b">
+                        <th class="px-6 py-4 font-medium text-gray-900">
+                            Plot
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= data.Plot %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <% } else if (typeof data=='object' && data.Response == 'False') { %>
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-4">Movie not found!</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    <% } %>
+</body>
+
+</html>

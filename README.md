@@ -10,4 +10,5 @@ cp .env.example .env
 npm start
 ```
 
-**NOTE:** Please set the env variables (api key and port number) in `.env`.
+**NOTE:** Please set the env variables (PORT number and API key) in `.env`.
+
